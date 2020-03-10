@@ -1,12 +1,10 @@
 # Salary Prediction based on job description features.
 
-<a href = "https://github.com/ankur26/SalaryPrediction/blob/master/Salary%20Prediction%20Notebook.ipynb">Link to code</a>
+<a href = "https://github.com/raktim314/Salary_prediction/blob/master/Script.ipynb">Link to code</a>
 ## Define the problem
 Let's say we are the job seeker who's gotten our very first offer and has no clue on negotiation, maybe we are HR who has to decide how much pay this person should get in his/her new job, here comes this project where we define and analyse the features which get you the salary expected across several aspects such as position and the industry you work in etc. Hence we are to train a model which can be used as a tool across several endpoints to help get a salary estimate for the Job. 
 
 ### Objective : Analyse job description data and define a model which can predict the salary based on the same by a reasonable estimate.
-
-### Problem areas helped: HR,Finance
 
 ### Dataset: Description of features
 * **JobId**: Job Identifier Used to track the jobs.(Unique key)
@@ -23,15 +21,13 @@ Let's say we are the job seeker who's gotten our very first offer and has no clu
 We will use <a href="https://en.wikipedia.org/wiki/Mean_squared_error">Mean squared error(MSE)</a> as our metric as it is mathematically easy to define and easy to use for optimization during the modeling phase. It also is very interpretable for example a salary MSE of a 10000 indicates that the estimate of our model will be off by (-100,+100) when we use it. This gives people a lower end and an upper mark to settle for in salary negotiations.
 
 ## A few results from our analyses and outcomes
-* In our analysis of the dataset we found that CompanyId is not a prevalent feature as the average salary across each company seemed to be across the same range.<img src="https://github.com/ankur26/SalaryPrediction/blob/master/Images/companyId_plot.png">The lower plot as we see remains a straight line across every company hence this feature is not of much use during modeling.
-* We also see that once we convert the categorical variables to numerical through <a href="https://www.questionpro.com/blog/ordinal-scale/">ordinal encoding</a> there is a high correlation within two features that is **major** and **degree**.
-<img src="https://github.com/ankur26/SalaryPrediction/blob/master/Images/corr_map_03-12-2019%2020_29_05.png"> 
+* In our analysis of the dataset we found that CompanyId is not a prevalent feature as the average salary across each company seemed to be across the same range.<img src="https://github.com/raktim314/Salary_prediction/blob/master/images/companyId_plot.png">The lower plot as we see remains a straight line across every company hence this feature is not of much use during modeling.
+* We also see that once we convert the categorical variables to numerical through ordinal encoding there is a high correlation within two features that is **major** and **degree**.
+<img src="https://github.com/raktim314/Salary_prediction/blob/master/images/corr_matrix.png"> 
 
-We see that at the lower corner(images saved are not clear). To solve for this issue we combined both of the features in one called as degree_in_major and we were able to get a nice positive correlation while not losing a large chunk of information as shown below. <img src="https://github.com/ankur26/SalaryPrediction/blob/master/Images/degree_in_major_plot.png">
-The lower plot shows a nice positive correlation with the salary once the degree and major categories are combined.
 
 * The salary variable also had a few outliers which were dropped. This plot shows the outliers present in the salary.
-<img src="https://github.com/ankur26/SalaryPrediction/blob/master/Images/salaryhistogram.png">
+<img src="https://github.com/raktim314/Salary_prediction/blob/master/images/histpgram.png">
 The box plot on the right clearly shows that most of the outliers are present on upper end than the lower.
 
 * After dropping companyId we see that every other feature except **miles from Metropolis** is positively correlated with the data.
